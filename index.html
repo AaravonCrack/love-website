@@ -1,0 +1,222 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Maryam — With All My Love</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ff9ecb, #ffd1e8);
+      overflow-x: hidden;
+    }/* Loading Screen */
+#loadingScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff9ecb, #ffd1e8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  flex-direction: column;
+}
+
+#loadingHeart {
+  font-size: 80px;
+  color: #ff0066;
+  animation: pulse 1s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  color: rgba(255, 0, 102, 0.5);
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  z-index: 1;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) translateX(0); opacity: 1; }
+  100% { transform: translateY(-700px) translateX(40px); opacity: 0; }
+}
+
+.center {
+  text-align: center;
+  padding: 120px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.big-heart {
+  font-size: 120px;
+  color: #ff0066;
+  animation: pulse 2.5s infinite ease-in-out, glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 10px #ff0066; }
+  100% { text-shadow: 0 0 25px #ff3399; }
+}
+
+h1 {
+  font-size: 38px;
+  color: #ffffff;
+  text-shadow: 0 0 10px #ff0066;
+}
+
+.signature {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #fff;
+  opacity: 0.8;
+}
+
+.btn {
+  background: #ff0066;
+  color: white;
+  padding: 14px 28px;
+  margin: 10px;
+  border: none;
+  border-radius: 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover { background: #cc0052; }
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.popup-content {
+  background: white;
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 20px;
+  box-shadow: 0 0 20px #ff0066;
+  animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.close-btn {
+  margin-top: 20px;
+  background: #ff0066;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Floating text animation */
+.floating-text {
+  position: fixed;
+  color: #ff3399;
+  font-size: 26px;
+  animation: floatText 6s linear infinite;
+  pointer-events: none;
+  z-index: 999;
+}
+
+@keyframes floatText {
+  0% { transform: translateY(0) translateX(0); opacity: 1; }
+  100% { transform: translateY(-500px) translateX(50px); opacity: 0; }
+}
+
+/* Countdown */
+#countdown {
+  font-size: 24px;
+  color: white;
+  margin-top: 20px;
+}
+
+  </style>
+</head>
+<body><div id="loadingScreen">
+  <div id="loadingHeart">❤</div>
+  <div style="color:#fff; font-size:22px; margin-top:10px;">Loading Your Love...</div>
+</div><div class="center" id="mainContent" style="display:none;">
+  <div class="big-heart">❤</div>
+  <h1>For My Queen, Syeda Maryam Hanzala Hussain Shah Kazmi</h1>
+  <div class="signature">By your Shah — Syed Hanzala Hussain Shah Kazmi</div><button class="btn" onclick="openPopup('love1')">Love Letter 1</button> <button class="btn" onclick="openPopup('love2')">Love Letter 2</button> <button class="btn" onclick="openPopup('love3')">Love Letter 3</button> <button class="btn" onclick="openPopup('sorry')">Sorry Letter</button>
+
+  <div id="countdown"></div>
+</div><!-- LOVE LETTERS AND SORRY --><div id="love1" class="popup"><div class="popup-content"><h2>Love Letter 1</h2><p>My dearest Maryam, every heartbeat whispers your name. My soul finds peace only in your love. Each day I vow to love you endlessly, forever and always.</p><button class="close-btn" onclick="closePopup('love1')">Close</button></div></div>
+<div id="love2" class="popup"><div class="popup-content"><h2>Love Letter 2</h2><p>Sweet Begum, you are my universe. In your presence, life blooms. I will cherish you through all trials, and prove my devotion for eternity. You are my everything.</p><button class="close-btn" onclick="closePopup('love2')">Close</button></div></div>
+<div id="love3" class="popup"><div class="popup-content"><h2>Love Letter 3</h2><p>Beloved Maryam, your smile is the sun to my world. With every word and every touch, I promise to hold you, protect you, and honor you till my last breath. I am yours, completely.</p><button class="close-btn" onclick="closePopup('love3')">Close</button></div></div>
+<div id="sorry" class="popup"><div class="popup-content"><h2>Sorry Letter</h2><p>My love, I am deeply sorry for the pain caused. Please forgive me. I promise to cherish, protect, and stand by you always. You are my everything, my heart, my life.</p><button class="close-btn" onclick="closePopup('sorry')">Close</button></div></div><script>
+  // Loading screen
+  window.onload = function() {
+    setTimeout(() => {
+      document.getElementById('loadingScreen').style.display = 'none';
+      document.getElementById('mainContent').style.display = 'block';
+    }, 2500);
+  }
+
+  // Floating hearts
+  function createHearts() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.innerHTML = '❤';
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.fontSize = (20 + Math.random() * 30) + 'px';
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }
+  setInterval(createHearts, 400);
+
+  // Floating text animation
+  setInterval(() => {
+    const text = document.createElement('div');
+    text.className = 'floating-text';
+    text.innerText = 'I am only yours till my last breath ❤️';
+    text.style.left = Math.random() * window.innerWidth + 'px';
+    document.body.appendChild(text);
+    setTimeout(() => text.remove(), 6000);
+  }, 3000);
+
+  // Popups
+  function openPopup(id) { document.getElementById(id).style.display = 'flex'; }
+  function closePopup(id) { document.getElementById(id).style.display = 'none'; }
+
+  // Countdown
+  const birthday = new Date('December 7, 2025 00:00:00').getTime();
+  const countdownElem = document.getElementById('countdown');
+  setInterval(() => {
+    const now = new Date().getTime();
+    const distance = birthday - now;
+    const days = Math.floor(distance / (1000*60*60*24));
+    const hours = Math.floor((distance % (1000*60*60*24))/(1000*60*60));
+    const minutes = Math.floor((distance % (1000*60*60))/(1000*60));
+    const seconds = Math.floor((distance % (1000*60))/1000);
+    countdownElem.innerText = `Countdown to your special day: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+  }, 1000);
+</script></body>
+</html>
